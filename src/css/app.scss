@@ -1,0 +1,58 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/montserrat-v25-latin-regular.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-v25-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/montserrat-v25-latin-500.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-v25-latin-500.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/montserrat-v25-latin-600.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-v25-latin-600.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/montserrat-v25-latin-700.woff2') format('woff2'),
+    url('../assets/fonts/montserrat-v25-latin-700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+* {
+  font-family: 'Montserrat';
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: black;
+  user-select: none;
+}
+
+.container {
+  
+}
