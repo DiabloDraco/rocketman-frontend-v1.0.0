@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import Aside__item from './aside__item/aside__item.vue';
 
-let history = '';
-window.location.pathname;
+function exit() {
+  window.localStorage.removeItem('token')
+  window.location.href = '/#/login'
+}
+
 </script>
 
 <template>
@@ -57,22 +60,43 @@ window.location.pathname;
       </ul>
     </div>
     <div class="aside__top">
-      <q-input
-        model-value=""
-        prepend
-        rounded
-        shadow-text="......................................................"
-        outlined
-        icon="warning"
-        class="white"
-        bg-color="white"
-        type="text"
-        label="Mijozni qidiring"
-      >
-        <template v-slot:append>
-          <q-icon name="search"  />
-        </template>
-      </q-input>
+      <div class="aside__top-wrapper">
+        <q-input
+          model-value=""
+          prepend
+          rounded
+          shadow-text="......................................................"
+          outlined
+          icon="warning"
+          class="white"
+          bg-color="white"
+          type="text"
+          label="Mijozni qidiring"
+          input-style="width: 500px;"
+        >
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+
+        <a href="#">
+          <div class="aside__top-img-wrapper">
+            <img
+              class="aside__top-img"
+              src="../../assets/icons/profile__img.svg"
+              width="15"
+              height="19"
+            />
+          </div>
+          <details>
+            <summary>John Doe</summary>
+            <button @click="exit" >
+              <q-pick name="exit"></q-pick>
+                LOG OUT
+            </button>
+          </details>
+        </a>
+      </div>
     </div>
   </aside>
   <div></div>
@@ -85,6 +109,39 @@ window.location.pathname;
     padding: 15px 0;
     padding-left: 253px;
     background-color: rgb(46, 52, 68);
+    width: 100%;
+    .aside__top-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      a {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        summary {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 15px;
+          /* identical to box height */
+
+          color: #ffffff;
+        }
+      }
+      .aside__top-img-wrapper {
+        background: #eaeaea;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        padding: 8px 10px;
+        img {
+        }
+      }
+    }
   }
 
   .aside__wrapper {
