@@ -35,30 +35,26 @@
 </template>
 <script lang="ts">
 import { ref } from 'vue';
-import { postUser } from '../components/fetch'
+import { postUser } from '../components/fetch';
+
+if (localStorage.getItem('token')) {
+  window.location.href = '/#/';
+}
 
 export default {
   setup() {
     return {
-      user: ref('Toxirrrr'),
+      user: ref(''),
       pass: ref(''),
     };
   },
   methods: {
-
     changeInput(e: { target: string }) {
       console.log(e.target.valueOf().toString());
     },
     addUser() {
-      let newUser = {
-        username: this.user,
-        password: this.pass
-      }
-      console.log(newUser);
-
-      postUser(newUser)
+      postUser(this.user, this.pass);
     },
-
   },
 };
 </script>
