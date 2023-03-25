@@ -125,8 +125,6 @@ function exit() {
           font-weight: 600;
           font-size: 12px;
           line-height: 15px;
-          /* identical to box height */
-
           color: #ffffff;
         }
       }
