@@ -3,10 +3,9 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 </script>
 
 <template>
-  <LayoutHi>
-    <template #body>
-    </template>
-  </LayoutHi>
+  <div>
+    
+  </div>
 </template>
 
 <style lang="scss" scoped>

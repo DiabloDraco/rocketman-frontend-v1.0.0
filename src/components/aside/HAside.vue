@@ -62,7 +62,6 @@ function exit() {
           header="Sozlamalar"
           link="/settings"
         />
-        <slot name="Toxirrrr"></slot>
       </ul>
     </div>
     <div class="aside__top">
@@ -84,7 +83,7 @@ function exit() {
           </template>
         </q-input>
 
-        <a href="" >
+        <a href="">
           <div class="aside__top-img-wrapper">
             <img
               class="aside__top-img"
@@ -104,7 +103,6 @@ function exit() {
       </div>
     </div>
   </aside>
-  <div></div>
 </template>
 
 <style lang="scss">

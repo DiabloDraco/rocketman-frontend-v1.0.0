@@ -4,7 +4,7 @@ const columns = [
     name: 'name',
     required: true,
     label: 'STATUS',
-    align: 'left',
+    align: 'center',
     field: (row: { name: string }) => row.name,
     format: (val: string) => `${val}`,
     sortable: true,
@@ -207,8 +207,7 @@ export default {
 </script>
 
 <template>
-  <layouthihi >
-    <section class="order">
+  <section class="order">
     <div class="q-pa-md">
       <q-table
         :rows="rows"
@@ -218,11 +217,10 @@ export default {
       />
     </div>
   </section>
-  </layouthihi>
 </template>
 
 <style scoped lang="scss">
-  thead {
-    background-color: #2E3444;
-  }
+thead {
+  background-color: #2e3444;
+}
 </style>
