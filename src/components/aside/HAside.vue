@@ -84,7 +84,7 @@ function exit() {
           </template>
         </q-input>
 
-        <a href="#">
+        <a href="" >
           <div class="aside__top-img-wrapper">
             <img
               class="aside__top-img"
@@ -148,7 +148,7 @@ function exit() {
   }
 
   .aside__wrapper {
-    position: fixed;
+    position: absolute;
     background-color: rgb(46, 52, 68);
     left: 0;
     top: 0;

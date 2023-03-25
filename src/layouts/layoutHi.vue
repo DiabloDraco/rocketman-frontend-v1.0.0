@@ -1,14 +1,12 @@
 <template>
-
+  <HAside />
   <main style="padding-left: 253px;">
    <slot />
   </main>
 </template>
 <script setup lang="ts">
-// import HAside from 'src/components/aside/HAside.vue';
+import HAside from 'src/components/aside/HAside.vue';
 
-import CustomerPage from 'src/pages/CustomerPage.vue';
-import OrderPage from 'src/pages/OrderPage.vue';
 
 if (!window.localStorage.getItem('token')) {
   window.location.href = '/#/login';
