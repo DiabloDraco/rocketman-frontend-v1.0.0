@@ -109,7 +109,6 @@ export default {
 .q-field__native::before {
   background-repeat: no-repeat;
   background-image: './../assets/icons/login__user.svg';
-  content: 'dasd';
 }
 .q-field__label {
   padding-left: 28px !important;

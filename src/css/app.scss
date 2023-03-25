@@ -44,7 +44,6 @@
     url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
 * {
-  font-family: 'Montserrat';
   list-style-type: none;
   text-decoration: none;
   margin: 0;
@@ -53,9 +52,12 @@
   user-select: none;
 }
 
+body {
+  font-family: 'Montserrat';
+}
+
 .container {
   max-width: 1072px;
   margin: 0 auto;
   padding: 0 20px;
-
 }

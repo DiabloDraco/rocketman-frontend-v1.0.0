@@ -1,8 +1,7 @@
 <template>
-  <main class="container">
-    <slot name="body">
-      
-    </slot>
+
+  <main style="padding-left: 253px;">
+   <slot />
   </main>
 </template>
 <script setup lang="ts">

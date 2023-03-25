@@ -1,11 +1,17 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import Aside__item from './aside__item/aside__item.vue';
 
-function exit() {
-  window.localStorage.removeItem('token')
-  window.location.href = '/#/login'
+function setup() {
+  return {
+    user: ref(''),
+    pass: ref(''),
+  };
 }
-
+function exit() {
+  window.localStorage.removeItem('token');
+  window.location.href = '/#/login';
+}
 </script>
 
 <template>
@@ -65,9 +71,8 @@ function exit() {
           model-value=""
           prepend
           rounded
-          shadow-text="......................................................"
+          shadow-text=".............................."
           outlined
-          icon="warning"
           class="white"
           bg-color="white"
           type="text"
@@ -90,9 +95,9 @@ function exit() {
           </div>
           <details>
             <summary>John Doe</summary>
-            <button @click="exit" >
+            <button @click="exit">
               <q-pick name="exit"></q-pick>
-                LOG OUT
+              LOG OUT
             </button>
           </details>
         </a>
