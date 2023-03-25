@@ -1,10 +1,13 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw } from 'vue-router'
+import Aside from 'components/aside/HAside.vue'
 
 const routes: RouteRecordRaw[] = [
-
   {
     path: '/',
-    component: () => import('pages/MainHome.vue')
+    components: {
+      default: () => import('pages/MainHome.vue'),
+      Aside
+    },
   },
   {
     path: '/Order',
@@ -13,17 +16,12 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/Customer',
+    name: 'Customer',
     component: () => import('pages/CustomerPage.vue'),
-  },
-
-  {
-    path: '/Order',
-    name: 'Order',
-    component: () => import('pages/OrderPage.vue'),
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: () => import('pages/LoginPage.vue'),
   },
   {

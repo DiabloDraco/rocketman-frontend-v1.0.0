@@ -3,13 +3,9 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 </script>
 
 <template>
-  <div>
-    <LayoutHi>
-      <template #body>
-        <div>
-          <h1>Toxirrrr</h1>
-        </div>
-      </template>
-    </LayoutHi>
-  </div>
+  <section>
+    <div>
+      <h1>Toxirdasdrrr</h1>
+    </div>
+  </section>
 </template>

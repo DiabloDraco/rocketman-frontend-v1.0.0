@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import HAside from 'src/components/aside/HAside.vue';
 import LayoutHi from 'src/layouts/layoutHi.vue';
-import CustomerPage from './CustomerPage.vue';
 import OrderPage from './OrderPage.vue';
+import CustomerPage from './CustomerPage.vue';
 </script>
 
 <template>
+  <HAside />
   <LayoutHi>
     <template #body>
-      <div>
-        <h1>Toxirrrr</h1>
-      </div>
     </template>
   </LayoutHi>
 </template>
