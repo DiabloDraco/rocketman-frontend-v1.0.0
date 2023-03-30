@@ -38,7 +38,7 @@
 import { ref } from 'vue';
 import { postUser } from '../components/fetch';
 
-if ((window.location.href = '/#/')) {
+if ((window.location.href == '/#/')) {
   window.location.href = '/#/Customer';
 
 }

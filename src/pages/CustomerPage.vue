@@ -131,13 +131,38 @@ export default {
     <section class="order">
       <div class="q-pa-md">
         <q-table
+          table-style="color:red;"
           max-pages
+          flat bordered
           selection="single"
           :rows="rows"
           :columns="columns"
           row-key="name"
-        />
+          table-header-class="salom"
+          title-class="salom"
+        >
+          <template v-slot:body-selection="scope">
+            <q-toggle v-model="scope.selected" />
+          </template>
+        </q-table>
       </div>
     </section>
   </layout-hi>
 </template>
+
+<style lang="scss">
+.salom {
+  background: #2e3444 !important;
+  color: white !important;
+  th {
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+</style>

@@ -82,7 +82,7 @@ function exit() {
           </template>
         </q-input>
 
-        <a href="">
+        <div class="aside__top-r">
           <div class="aside__top-img-wrapper">
             <img
               class="aside__top-img"
@@ -91,17 +91,35 @@ function exit() {
               height="19"
             />
           </div>
-          <details>
+          <details class="detailss">
             <summary>John Doe</summary>
-            <button @click="exit" class="aside__btn">LOG OUT</button>
+            <div class="details__wrapper">
+              <button @click="exit" class="aside__btn">Log Out</button>
+            </div>
           </details>
-        </a>
+        </div>
       </div>
     </div>
   </aside>
 </template>
 
 <style lang="scss">
+.aside__top-r {
+  margin-right: 20px;
+  max-width: 117px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: white;
+}
+
+.detailss {
+  position: relative;
+  button {
+    position: absolute;
+  }
+}
 .aside {
   display: flex;
   .aside__top {
@@ -113,13 +131,13 @@ function exit() {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      a {
+      .aside__top-r {
+        transition: all 0.4s ease;
         margin-right: 30px;
         display: flex;
         align-items: center;
         gap: 9px;
         summary {
-          font-family: 'Montserrat';
           font-style: normal;
           font-weight: 600;
           font-size: 12px;
@@ -142,13 +160,16 @@ function exit() {
       .aside__btn {
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 5px;
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
         color: #000000;
         padding: 5px 14px;
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
       }
     }
   }

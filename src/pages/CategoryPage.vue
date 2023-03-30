@@ -224,7 +224,7 @@ export default {
  </layout-hi>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 thead {
   background-color: #2e3444;
 }

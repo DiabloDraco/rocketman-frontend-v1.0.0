@@ -10,5 +10,6 @@ import HAside from 'src/components/aside/HAside.vue';
 if (!window.localStorage.getItem('token')) {
   window.location.href = '/#/login';
 }
+
 </script>
 <style lang="scss" scoped></style>

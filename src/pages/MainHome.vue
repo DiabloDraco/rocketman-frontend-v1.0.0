@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import LayoutHi from 'src/layouts/layoutHi.vue';
-if(!window.localStorage.getItem('token')) window.location.pathname = '/login'
+if (!window.localStorage.getItem('token')) window.location.pathname = '/#/login';
+
+if (!window.localStorage.getItem('token')) {
+  window.location.href = '/#/login';
+} else {
+  window.location.href = '/#/';
+  location.replace('/#/');
+}
+
 </script>
 
 <template>
   <div>
-    <LayoutHi>
-
-    </LayoutHi>
+    <LayoutHi> </LayoutHi>
   </div>
 </template>
 

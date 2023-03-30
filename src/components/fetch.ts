@@ -11,8 +11,6 @@ export async function postUser(
     password: pass,
   });
 
-  const tokenGet: string | null = localStorage.getItem('token');
-
   await fetch(url + '/api/login', {
     method: 'POST',
     headers: myHeaders,
@@ -30,9 +28,15 @@ export async function postUser(
       if (!t) {
         throw new Error(t.error);
       }
-      
-      if (tkn != undefined) {
-        localStorage.setItem('token', t.token);
+
+      window.location.href = '/#/order';
+
+      if (!window.localStorage.getItem('token')) {
+        window.location.href = '/#/login';
       }
+
+      console.log(t.token);
+
+      localStorage.setItem('token', t.token);
     });
 }

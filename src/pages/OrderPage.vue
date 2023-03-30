@@ -3,17 +3,8 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 
 const columns = [
   {
-    name: 'name',
-    required: true,
-    label: 'STATUS',
-    align: 'center',
-    field: (row) => row.name,
-    format: (val) => `${val}`,
-    sortable: true,
-  },
-  {
     name: 'Id',
-    align: 'left',
+    align: 'center',
     label: 'ID',
     field: 'Id',
     sortable: true,
@@ -79,9 +70,9 @@ const columns = [
     required: true,
     field: 'Holat',
     align: 'center',
-    sortable: true,
     sort: (row) => row.holat,
     format: (val) => `${val}`,
+    sortable: true,
   },
 ];
 
