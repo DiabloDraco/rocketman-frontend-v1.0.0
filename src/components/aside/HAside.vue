@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+// import { ref } from 'vue';
 import Aside__item from './aside__item/aside__item.vue';
 
-function setup() {
-  return {
-    user: ref(''),
-    pass: ref(''),
-  };
-}
+// function setup() {
+//   return {
+//     search: ref(''),
+//   };
+// }
 function exit() {
   window.localStorage.removeItem('token');
   window.location.href = '/#/login';
@@ -94,10 +93,7 @@ function exit() {
           </div>
           <details>
             <summary>John Doe</summary>
-            <button @click="exit">
-              <q-pick name="exit"></q-pick>
-              LOG OUT
-            </button>
+            <button @click="exit" class="aside__btn">LOG OUT</button>
           </details>
         </a>
       </div>
@@ -141,6 +137,18 @@ function exit() {
         padding: 8px 10px;
         img {
         }
+      }
+
+      .aside__btn {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+        padding: 5px 14px;
       }
     }
   }

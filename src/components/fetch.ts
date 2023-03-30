@@ -2,8 +2,7 @@ export async function postUser(
   user: string,
   pass: string
 ): Promise<void | undefined> {
-  const url = 'http://localhost:5002';
-
+  const url = 'https://reqres.in';
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
@@ -12,19 +11,28 @@ export async function postUser(
     password: pass,
   });
 
-  await fetch(url + '/login', {
+  const tokenGet: string | null = localStorage.getItem('token');
+
+  await fetch(url + '/api/login', {
     method: 'POST',
     headers: myHeaders,
     body: User,
   })
     .then((req) => req.json())
     .then((data) => {
-      if (data.status == 400) {
-        throw new Error('invalid username or password');
+      const t = data;
+      const tkn = t.token;
+
+      if (tkn == undefined) {
+        throw new Error('wrong username or password');
       }
-      if (data.status == 201) {
-        localStorage.setItem('token', data.token);
-        window.location.href = '/#/';
+
+      if (!t) {
+        throw new Error(t.error);
+      }
+      
+      if (tkn != undefined) {
+        localStorage.setItem('token', t.token);
       }
     });
 }

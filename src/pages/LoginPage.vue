@@ -33,12 +33,14 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { ref } from 'vue';
 import { postUser } from '../components/fetch';
 
-if (localStorage.getItem('token')) {
-  window.location.href = '/#/';
+if ((window.location.href = '/#/')) {
+  window.location.href = '/#/Customer';
+
 }
 
 export default {
@@ -58,6 +60,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .login {
   padding-top: 46px;

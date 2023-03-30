@@ -1,12 +1,17 @@
-<script lang="ts">
+<script>
+import LayoutHi from 'src/layouts/layoutHi.vue';
+// import {ref} from 'vue'
+
+// const read = ref()
+
 const columns = [
   {
     name: 'name',
     required: true,
     label: 'KATEGORIYA',
     align: 'center',
-    field: (row: { name: string }) => row.name,
-    format: (val: string) => `${val}`,
+    field: (row) => row.name,
+    format: (val) => `${val}`,
     sortable: true,
   },
   {
@@ -15,7 +20,7 @@ const columns = [
     label: 'ID',
     field: 'Id',
     sortable: true,
-    sort: (a: string, b: string) => parseInt(a, 10) - parseInt(b, 10),
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
   },
   {
     fat: 1,
@@ -23,8 +28,8 @@ const columns = [
     required: true,
     label: 'ISM',
     align: 'center',
-    field: (row: { name: string }) => row.name,
-    format: (val: string) => `${val}`,
+    field: (row) => row.name,
+    format: (val) => `${val}`,
     sortable: true,
   },
   {
@@ -41,8 +46,8 @@ const columns = [
     required: true,
     align: 'center',
     require: true,
-    field: (row: { [x: string]: string; name: string }) => row.Soni,
-    format: (val: string) => `${val}`,
+    field: (row) => row.Soni,
+    format: (val) => `${val}`,
     sortable: true,
   },
 ];
@@ -117,20 +122,22 @@ export default {
       rows,
     };
   },
+  components: { LayoutHi },
 };
 </script>
 
 <template>
-  <section class="order">
-    <div class="q-pa-md">
-      <q-table
-        max-pages
-        title="Treats"
-        :rows="rows"
-        class="order__table"
-        :columns="columns"
-        row-key="name"
-      />
-    </div>
-  </section>
+  <layout-hi>
+    <section class="order">
+      <div class="q-pa-md">
+        <q-table
+          max-pages
+          selection="single"
+          :rows="rows"
+          :columns="columns"
+          row-key="name"
+        />
+      </div>
+    </section>
+  </layout-hi>
 </template>
