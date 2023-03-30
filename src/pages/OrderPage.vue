@@ -190,29 +190,29 @@ const rows = [
 ];
 
 export default {
-    setup() {
-        return {
-            columns,
-            rows,
-        };
-    },
-    components: { LayoutHi }
+  setup() {
+    return {
+      columns,
+      rows,
+    };
+  },
+  components: { LayoutHi },
 };
 </script>
 
 <template>
- <layout-hi>
-  <section class="order">
-    <div class="q-pa-md">
-      <q-table
-        :rows="rows"
-        class="order__table"
-        :columns="columns"
-        row-key="name"
-      />
-    </div>
-  </section>
- </layout-hi>
+  <layout-hi>
+    <section class="order">
+      <div class="q-pa-md">
+        <q-table
+          :rows="rows"
+          class="order__table"
+          :columns="columns"
+          row-key="name"
+        />
+      </div>
+    </section>
+  </layout-hi>
 </template>
 
 <style scoped lang="scss">
