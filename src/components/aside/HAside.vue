@@ -2,7 +2,7 @@
 // import { ref } from 'vue';
 import Aside__item from './aside__item/aside__item.vue';
 
-// function setup() { 
+// function setup() {
 //   return {
 //     search: ref(''),
 //   };
@@ -173,7 +173,7 @@ function exit() {
   }
 
   .aside__wrapper {
-    position: absolute;
+    position: fixed;
     background-color: rgb(46, 52, 68);
     left: 0;
     top: 0;
