@@ -131,7 +131,6 @@ export default {
     <section class="order">
       <div class="q-pa-md">
         <q-table
-          table-style="color:red;"
           max-pages
           flat
           bordered

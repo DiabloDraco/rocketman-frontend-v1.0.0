@@ -51,7 +51,7 @@
         <li class="user__item q-pa-none">
           <div class="user__item-text">
             <p class="user__item-id">1.   </p>
-            <p class="user__item-header text-h6">Toxir Turayev</p>
+            <p class="user__item-header text-h6">Toxir</p>
           </div>
           <div class="user__item-btn-wrapper flex no-wrap">
             <q-icon
@@ -72,7 +72,18 @@
         </li>
       </ul>
 
-      <q-btn flat class="bg-green-12  text-lowercase"> Qo’shish </q-btn>
+      <q-btn
+        flat
+        class="user__btn"
+        style="
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          color: white !important;
+        "
+      >
+        Qo’shish
+      </q-btn>
     </div>
   </section>
 </template>
@@ -82,9 +93,20 @@
 <style lang="scss" scoped>
 .user {
   .user__wrapper {
+    max-width: 426px;
+    width: 100%;
     .user__header {
     }
+
+    .user__btn {
+      display: flex;
+      margin-left: auto;
+      background: #3eb597;
+      border-radius: 5px;
+      padding: 0 35px;
+    }
     .user__list {
+      margin-bottom: 30px;
       max-width: 426px;
       width: 100%;
       display: flex;

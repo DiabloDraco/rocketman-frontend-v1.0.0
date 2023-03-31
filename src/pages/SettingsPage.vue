@@ -53,7 +53,6 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 150px;
       max-width: 340px;
-      width: 100%;
       display: flex;
     }
     .setting__item {
@@ -67,7 +66,7 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
         font-weight: 600;
         font-size: 14px;
         line-height: 17px;
-
+        color: black;
       }
       .router-link-active {
           background-color: #2e3444;
