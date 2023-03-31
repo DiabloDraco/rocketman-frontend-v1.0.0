@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name:'home',
+    name: 'home',
     component: () => import('pages/ProductPage.vue'),
   },
   {
@@ -14,7 +14,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/Category',
     name: 'Category',
-    component: () => import('pages/ProductPage.vue')
+    component: () => import('pages/ProductPage.vue'),
   },
   {
     path: '/Client/:id',
@@ -39,7 +39,41 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/Suggestions',
     name: 'Suggestions',
-    component: () => import('pages/SuggestionPage.vue')
+    component: () => import('pages/SuggestionPage.vue'),
+  },
+  // {
+  //   path: '/settings',
+  //   name:'settings',
+  //   component: () => import('pages/SettingsPage.vue'),
+  //   children: [
+  //     {
+  //       path: 'users',
+  //       name: 'users',
+  //       component: () => import('pages/UsersPage.vue')
+  //     }
+  //   ]
+  // },
+  {
+    path: '/settings',
+    component: () => import('pages/SettingsPage.vue'),
+    children: [
+      {
+        path: 'users',
+        component: () => import('pages/UsersPage.vue'),
+      },
+      {
+        path: 'drivers',
+        component: () => import('pages/DriverPage.vue'),
+      },
+      {
+        path: 'payment',
+        component: () => import('pages/PaymentPage.vue'),
+      },
+      {
+        path: 'info',
+        component: () => import('pages/InfoPage.vue'),
+      },
+    ],
   },
   {
     path: '/:catchAll(.*)*',

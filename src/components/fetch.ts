@@ -29,11 +29,10 @@ export async function postUser(
         throw new Error(t.error);
       }
 
-      window.location.href = '/#/order';
 
-      if (!window.localStorage.getItem('token')) {
-        window.location.href = '/#/login';
-      }
+      setTimeout(() => {
+        window.location.href = '/#/order';
+      }, 1000);
 
       console.log(t.token);
 
