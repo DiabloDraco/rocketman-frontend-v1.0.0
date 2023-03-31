@@ -38,10 +38,15 @@
 import { ref } from 'vue';
 import { postUser } from '../components/fetch';
 
-if ((window.location.href == '/#/')) {
-  window.location.href = '/#/Customer';
-
+if (!window.localStorage.getItem('token')) {
+  window.location.href = '/#/login';
 }
+
+if (window.localStorage.getItem('token')) {
+  window.location.href = '/#/order';
+  window.location.reload()
+}
+
 
 export default {
   setup() {

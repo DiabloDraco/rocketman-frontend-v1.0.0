@@ -72,7 +72,6 @@ const columns = [
     align: 'center',
     sort: (row) => row.holat,
     format: (val) => `${val}`,
-    sortable: true,
   },
 ];
 

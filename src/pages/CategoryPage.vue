@@ -211,11 +211,13 @@ export default {
 
 <template>
  <layout-hi>
-  <section class="order">
+  <section class="category">
     <div class="q-pa-md">
       <q-table
         :rows="rows"
-        class="order__table"
+        table-header-class="cagegory__table-header"
+        table-class="category__table"
+        class="category__table"
         :columns="columns"
         row-key="name"
       />
@@ -225,7 +227,10 @@ export default {
 </template>
 
 <style lang="scss">
-thead {
-  background-color: #2e3444;
+.cagegory__table-header {
+  background-color: #2e3444 !important;
+  th {
+    color: white ;
+  }
 }
 </style>

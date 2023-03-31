@@ -2,7 +2,7 @@
 // import { ref } from 'vue';
 import Aside__item from './aside__item/aside__item.vue';
 
-// function setup() {
+// function setup() { 
 //   return {
 //     search: ref(''),
 //   };
@@ -18,7 +18,7 @@ function exit() {
     <div class="aside__wrapper">
       <div class="aside__top-wrapper">
         <div class="aside__img-wrapper">
-          <a href="/">
+          <a href="/#/order">
             <img
               src="../../assets/icons/rocketman__logo.svg"
               width="161"
@@ -38,19 +38,19 @@ function exit() {
           <Aside__item
             image="/src/assets/icons/aside__customer.svg"
             header="Mijozlar"
-            link="/customer"
+            link="/Client"
             active="aside__item-active"
           />
           <Aside__item
             image="/src/assets/icons/aside__products.svg"
             header="Mahsulotlar"
-            link="/products"
+            link="/Category"
             active="aside__item-active"
           />
           <Aside__item
             image="/src/assets/icons/aside__suggestions.svg"
             header="Takliflar"
-            link="/suggestions"
+            link="/Suggestions"
             active="aside__item-active"
           />
         </ul>
@@ -59,7 +59,7 @@ function exit() {
         <Aside__item
           image="/src/assets/icons/aside__settings.svg"
           header="Sozlamalar"
-          link="/settings"
+          link="/Settings"
         />
       </ul>
     </div>
@@ -153,8 +153,6 @@ function exit() {
         width: 35px;
         height: 35px;
         padding: 8px 10px;
-        img {
-        }
       }
 
       .aside__btn {

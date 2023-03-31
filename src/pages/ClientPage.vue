@@ -6,6 +6,14 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 
 const columns = [
   {
+    name: 'Id',
+    align: 'center',
+    label: 'ID',
+    field: 'Id',
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
     name: 'name',
     required: true,
     label: 'KATEGORIYA',
@@ -13,14 +21,6 @@ const columns = [
     field: (row) => row.name,
     format: (val) => `${val}`,
     sortable: true,
-  },
-  {
-    name: 'Id',
-    align: 'center',
-    label: 'ID',
-    field: 'Id',
-    sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
   },
   {
     fat: 1,
@@ -133,7 +133,8 @@ export default {
         <q-table
           table-style="color:red;"
           max-pages
-          flat bordered
+          flat
+          bordered
           selection="single"
           :rows="rows"
           :columns="columns"

@@ -151,7 +151,7 @@ export default {
             v-model="scope.selected"
             color="pink"
             :field="scope.selected"
-          />
+          /> 
         </template> -->
       </q-table>
     </section>

@@ -4,7 +4,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name:'home',
-    component: () => import('pages/MainHome.vue'),
+    component: () => import('pages/ProductPage.vue'),
   },
   {
     path: '/Order',
@@ -12,24 +12,34 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/OrderPage.vue'),
   },
   {
-    path: '/products',
-    name: 'Product',
-    component: () => import('src/pages/ProductPage.vue')
+    path: '/Category',
+    name: 'Category',
+    component: () => import('pages/ProductPage.vue')
   },
   {
-    path: '/customer/:id',
-    name: 'customerID',
-    component: () => import('pages/OrderPage.vue'),
+    path: '/Client/:id',
+    name: 'clientID',
+    component: () => import('pages/ClientPage.vue'),
   },
   {
-    path: '/login',
+    path: '/Login',
     name: 'Login',
     component: () => import('pages/LoginPage.vue'),
   },
   {
-    path: '/customer',
-    name: 'Customer',
-    component: () => import('pages/CustomerPage.vue'),
+    path: '/Client',
+    name: 'Client',
+    component: () => import('pages/ClientPage.vue'),
+  },
+  {
+    path: '/Takliflar',
+    name: 'Takliflar',
+    component: () => import('src/pages/SuggestionPage.vue'),
+  },
+  {
+    path: '/Suggestions',
+    name: 'Suggestions',
+    component: () => import('pages/SuggestionPage.vue')
   },
   {
     path: '/:catchAll(.*)*',
