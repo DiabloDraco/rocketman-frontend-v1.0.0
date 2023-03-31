@@ -7,12 +7,12 @@ export interface Name {
 }
 
 export interface UserInt {
-  username: string | any;
-  password: string | any;
+  username: string | never;
+  password: string | never;
 }
 
 export interface requestOptions {
   method: string;
-  headers: string | any;
+  headers: string | never;
   body: UserInt;
 }
