@@ -107,8 +107,6 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 </script>
 
 <style lang="scss" scoped>
-.suggestion {
-}
 .suggettion__wrapper {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
