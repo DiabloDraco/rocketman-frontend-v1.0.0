@@ -122,11 +122,18 @@ function exit() {
 }
 .aside {
   display: flex;
+  padding-top: 70px;
+  position: static;
+  z-index: 999;
   .aside__top {
     padding: 15px 0;
-    padding-left: 253px;
+    padding-left: 31px;
     background-color: rgb(46, 52, 68);
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 224px;
+    right: 0;
+    z-index: 999;
     .aside__top-wrapper {
       display: flex;
       justify-content: space-between;
@@ -191,6 +198,7 @@ function exit() {
       margin: 0;
       padding: 0;
       padding-top: 20px;
+      padding-bottom: 15px;
     }
   }
 }
