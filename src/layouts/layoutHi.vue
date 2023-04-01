@@ -7,7 +7,8 @@
   </main>
 </template>
 <script setup lang="ts">
-import HAside from 'src/components/aside/HAside.vue.js';
+import HAside from 'src/components/aside/HAside.vue';
+
 
 if (!window.localStorage.getItem('token')) {
   window.location.href = '/#/login';
@@ -16,9 +17,3 @@ setTimeout(() => {
   window.location.reload();
 }, 100000);
 </script>
-<style lang="scss">
-.q-pa-md,
-.q-pa-xs {
-  padding: 0;
-}
-</style>

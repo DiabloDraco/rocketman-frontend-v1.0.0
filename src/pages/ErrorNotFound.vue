@@ -14,8 +14,8 @@
         color="white"
         text-color="blue"
         unelevated
-        to="/order"
-        label="Go Home"
+        to="/"
+        label="Go To Home"
         no-caps
       />
     </div>
