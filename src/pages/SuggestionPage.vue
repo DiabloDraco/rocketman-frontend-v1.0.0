@@ -11,18 +11,17 @@
                 <span class="suggestion__item-id">1</span>
               </div>
               <div class="suggestion__item-name-wrapper">
-
-              <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
-              <p class="suggestion__item-text-text">01/01/2021</p>
-
+                <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
+                <p class="suggestion__item-text-text">01/01/2021</p>
               </div>
               <p class="suggestion__item-text mdi-size-xl">
-              Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.
-              Purus ornare mattis tincidunt tellus mauris malesuada facilisi
-              urna. Libero, feugiat volutpat diam nullam duis dui sed pulvinar.
-              Nunc duis facilisis fringilla etiam. Lorem dignissim molestie
-              volutpat in dolor arcu. In vitae fusce dignissim sodales.
-            </p>
+                Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.
+                Purus ornare mattis tincidunt tellus mauris malesuada facilisi
+                urna. Libero, feugiat volutpat diam nullam duis dui sed
+                pulvinar. Nunc duis facilisis fringilla etiam. Lorem dignissim
+                molestie volutpat in dolor arcu. In vitae fusce
+                dignissimsodales.
+              </p>
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
@@ -45,12 +44,14 @@
                 <span class="suggestion__item-id">1</span>
               </div>
               <div class="suggestion__item-name-wrapper">
-
-              <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
-              <p class="suggestion__item-text-text">01/01/2021</p>
-
+                <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
+                <p class="suggestion__item-text-text">01/01/2021</p>
               </div>
-              <p class="suggestion__item-text mdi-size-xl">Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit. Purus ornare mattis tincidunt tellus mauris malesuada facilisi urna.</p>
+              <p class="suggestion__item-text mdi-size-xl">
+                Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.
+                Purus ornare mattis tincidunt tellus mauris malesuada facilisi
+                urna.
+              </p>
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
@@ -73,12 +74,12 @@
                 <span class="suggestion__item-id">1</span>
               </div>
               <div class="suggestion__item-name-wrapper">
-
-              <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
-              <p class="suggestion__item-text-text">01/01/2021</p>
-
+                <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
+                <p class="suggestion__item-text-text">01/01/2021</p>
               </div>
-              <p class="suggestion__item-text mdi-size-xl">Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.</p>
+              <p class="suggestion__item-text mdi-size-xl">
+                Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.
+              </p>
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
@@ -123,12 +124,17 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
   color: #000000;
   margin-bottom: 10px;
 }
+
 .suggestion__item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   justify-content: space-between;
   padding-top: 15px;
   align-items: start;
   padding-bottom: 15px;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 .suggestion__item-id-wrapper {
   padding: 15px;

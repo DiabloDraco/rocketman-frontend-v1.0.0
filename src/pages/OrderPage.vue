@@ -206,6 +206,7 @@ export default {
         <q-table
           :rows="rows"
           class="order__table"
+          table-header-class="order__table-header"
           :columns="columns"
           row-key="name"
         />
@@ -214,8 +215,11 @@ export default {
   </layout-hi>
 </template>
 
-<style scoped lang="scss">
-thead {
+<style lang="scss">
+.order__table-header {
   background-color: #2e3444;
+  th {
+    color: white;
+  }
 }
 </style>

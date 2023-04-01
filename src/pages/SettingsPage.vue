@@ -44,10 +44,10 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
 
 <style scoped lang="scss">
 .setting {
-  .setting__wrapper {
+  &__wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    padding-top: 30px;
     .setting__list {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.2);

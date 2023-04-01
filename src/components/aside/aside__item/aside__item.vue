@@ -23,9 +23,11 @@ const item = defineProps({
 
 <style lang="scss">
 .aside__item {
-  opacity: 0.6;
+  transition: all 0.4s ease-in;
+
   /* padding: 24px 37px 0 30px; */
   .aside__item-link {
+    opacity: 0.6;
     display: flex;
     align-items: center;
     font-style: normal;
@@ -34,6 +36,21 @@ const item = defineProps({
     line-height: 22px;
     color: #ffffff;
     padding: 24px 0;
+  }
+  .router-link-active {
+    position: relative;
+    opacity: 1;
+    box-shadow: 10px 10x 10px 10px rgb(255, 0, 0);
+    ::before {
+      position: absolute;
+      border-left: 4px solid #fff;
+      width: 4px;
+      height: auto;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      content: '';
+    }
   }
   .aside__item-header {
     font-style: normal;
@@ -56,9 +73,5 @@ const item = defineProps({
     transition: all 0.6s ease;
     background-color: #424856;
   }
-}
-
-.aside__item-active {
-  border-left: 4px solid white;
 }
 </style>
