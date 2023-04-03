@@ -58,10 +58,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/SettingsPage.vue'),
     children: [
       {
-        path: '',
-        component: () => import('pages/ToxirrrrPage.vue'),
-      },
-      {
         path: 'users',
         component: () => import('pages/UsersPage.vue'),
       },

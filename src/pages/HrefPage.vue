@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import LayoutHi from 'src/layouts/layoutHi.vue';
 window.location.href = '/#/Order';
 window.location.reload();
 </script>

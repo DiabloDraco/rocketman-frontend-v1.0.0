@@ -11,6 +11,7 @@ const columns = [
     field: (row) => row.name,
     format: (val) => `${val}`,
     sortable: true,
+    id: (row) => `${row.val}`
   },
   {
     name: 'Dokonlar',
@@ -27,7 +28,6 @@ const columns = [
     field: 'tahrirlash',
     align: 'center',
     field: (row) => row.tahrirlash,
-    sortable: true,
   },
   {
     name: 'STATUS',
@@ -137,6 +137,8 @@ export default {
         bordered
         :rows="rows"
         :columns="columns"
+        :key="columns.id"
+        :visible-columns="myCols"
         row-key="name"
         table-header-class="product__thead"
         on-selection="false"

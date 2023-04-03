@@ -1,12 +1,12 @@
 <template>
-  <section class="user">
+  <section class="user q-mt-xl q-pl-md">
     <div class="user__wrapper">
-      <h2 class="user__header text-h6">Available users</h2>
+      <h2 class="user__header text-h6 q-pb-lg">Available users</h2>
 
       <ul class="user__list">
         <li class="user__item q-pa-none">
           <div class="user__item-text">
-            <p class="user__item-id">1.   </p>
+            <p class="user__item-id">1.</p>
             <p class="user__item-header text-h6">Toxir Turayev</p>
           </div>
           <div class="user__item-btn-wrapper flex no-wrap">
@@ -28,7 +28,7 @@
         </li>
         <li class="user__item q-pa-none">
           <div class="user__item-text">
-            <p class="user__item-id">1.   </p>
+            <p class="user__item-id">2.</p>
             <p class="user__item-header text-h6">Toxir Turayev</p>
           </div>
           <div class="user__item-btn-wrapper flex no-wrap">
@@ -50,7 +50,7 @@
         </li>
         <li class="user__item q-pa-none">
           <div class="user__item-text">
-            <p class="user__item-id">1.   </p>
+            <p class="user__item-id">3.</p>
             <p class="user__item-header text-h6">Toxir</p>
           </div>
           <div class="user__item-btn-wrapper flex no-wrap">
@@ -74,7 +74,7 @@
 
       <q-btn
         flat
-        class="user__btn"
+        class="user__btn text-capitalize"
         style="
           font-weight: 600;
           font-size: 14px;

@@ -32,7 +32,7 @@ function exit() {
           <Aside__item
             image="/src/assets/icons/aside__order.svg"
             header="Buyurtmalar"
-            link="/Order"
+            link="/order"
             active="aside__item-active"
           />
           <Aside__item
@@ -59,7 +59,7 @@ function exit() {
         <Aside__item
           image="/src/assets/icons/aside__settings.svg"
           header="Sozlamalar"
-          link="/Settings"
+          link="/Settings/users"
         />
       </ul>
     </div>

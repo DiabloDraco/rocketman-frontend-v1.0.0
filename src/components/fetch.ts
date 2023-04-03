@@ -34,8 +34,6 @@ export async function postUser(
         window.location.href = '/#/order';
       }, 1000);
 
-      console.log(t.token);
-
       localStorage.setItem('token', t.token);
     });
 }
