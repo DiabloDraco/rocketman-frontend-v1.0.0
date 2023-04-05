@@ -161,11 +161,9 @@ export default {
           class="cagegoryfood__table"
           :columns="column"
         >
-
           <template #body-cell-Holat="props">
-            <q-td :id="row[0].Id" :props="props"> save </q-td>
+            <q-td :id="row[1].Id" :props="props"> save </q-td>
           </template>
-
         </q-table>
       </div>
     </section>
