@@ -4,30 +4,22 @@
       <div class="setting__wrapper">
         <ul class="setting__list">
           <li class="setting__item">
-            <router-link
-              class="settngs__item-link"
-              to="/settings/users"
+            <router-link class="settngs__item-link" to="/settings/users"
               >Users</router-link
             >
           </li>
           <li class="setting__item">
-            <router-link
-              class="settngs__item-link"
-              to="/settings/drivers"
+            <router-link class="settngs__item-link" to="/settings/drivers"
               >Drivers</router-link
             >
           </li>
           <li class="setting__item">
-            <router-link
-              class="settngs__item-link"
-              to="/settings/info"
+            <router-link class="settngs__item-link" to="/settings/info"
               >Infos</router-link
             >
           </li>
           <li class="setting__item">
-            <router-link
-              class="settngs__item-link"
-              to="/settings/payment"
+            <router-link class="settngs__item-link" to="/settings/payment"
               >Payment</router-link
             >
           </li>
@@ -40,6 +32,7 @@
 
 <script lang="ts" setup>
 import LayoutHi from 'src/layouts/layoutHi.vue';
+window.location.href = '/#/settings/users';
 </script>
 
 <style scoped lang="scss">
@@ -69,9 +62,9 @@ import LayoutHi from 'src/layouts/layoutHi.vue';
         color: black;
       }
       .router-link-active {
-          background-color: #2e3444;
-          color: #ffffff;
-        }
+        background-color: #2e3444;
+        color: #ffffff;
+      }
     }
   }
 }
