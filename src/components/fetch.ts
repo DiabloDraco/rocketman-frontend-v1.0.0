@@ -2,7 +2,7 @@ export async function postUser(
   user: string,
   pass: string
 ): Promise<void | undefined> {
-  const url = 'https://reqres.in';
+  const url = 'http://64.227.144.105:3000/api/';
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
@@ -11,7 +11,7 @@ export async function postUser(
     password: pass,
   });
 
-  await fetch(url + '/api/login', {
+  await fetch(url + 'auth/sign-in', {
     method: 'POST',
     headers: myHeaders,
     body: User,

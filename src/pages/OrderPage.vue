@@ -65,14 +65,17 @@ const columns = [
     field: 'adress',
     align: 'center',
   },
-  { name: 'Driver', label: 'DRIVER',
-  field: (row) => row?.driver[0]?.car_number,
-    align: 'center' },
+  {
+    name: 'Driver',
+    label: 'DRIVER',
+    field: (row) => row?.driver[0]?.car_number,
+    align: 'center',
+  },
   {
     name: 'Holat',
     label: 'HOLAT',
     required: true,
-    field: 'status',
+    field: (row) => console.log(row.customer?.fullname),
     align: 'center',
     sort: (row) => row.holat,
     format: (val) => `${val}`,
@@ -80,15 +83,14 @@ const columns = [
 ];
 
 
+let rows = ref([]);
 
-let rows = ref([])
-
-async function eledd (){
- let orders =  await getOrder()
- rows.value = orders
+async function eledd() {
+  let orders = await getOrder();
+  rows.value = orders;
 }
 
-eledd()
+eledd();
 
 export default {
   setup() {
@@ -106,12 +108,18 @@ export default {
     <section class="order">
       <div class="q-pa-md">
         <q-table
+          v-for="row in rows"
+          :key="row"
           :rows="rows"
           class="order__table"
           table-header-class="order__table-header"
           :columns="columns"
           row-key="name"
-        />
+        >
+          <template #body-cell-Holat="props">
+            <q-td :id="row.Id" :props="props" style="display: flex; align-items: center;">{{row.fullname}}</q-td>
+          </template>
+        </q-table>
       </div>
     </section>
   </layout-hi>
