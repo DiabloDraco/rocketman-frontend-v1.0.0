@@ -92,6 +92,10 @@ async function eledd() {
 
 eledd();
 
+function ctx (evt) {
+  console.log(evt.target);
+}
+
 export default {
   setup() {
     return {
@@ -108,17 +112,16 @@ export default {
     <section class="order">
       <div class="q-pa-md">
         <q-table
-          v-for="row in rows"
-          :key="row"
+        @click="()=>ctx"
           :rows="rows"
           class="order__table"
           table-header-class="order__table-header"
           :columns="columns"
           row-key="name"
         >
-          <template #body-cell-Holat="props">
+          <!-- <template #body-cell-Holat="props">
             <q-td :id="row.Id" :props="props" style="display: flex; align-items: center;">{{row.fullname}}</q-td>
-          </template>
+          </template> -->
         </q-table>
       </div>
     </section>
