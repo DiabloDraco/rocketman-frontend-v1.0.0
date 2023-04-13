@@ -1,19 +1,21 @@
 <script>
 import LayoutHi from 'src/layouts/layoutHi.vue';
+import { getOrder } from 'src/service/OrderService';
+import { ref } from 'vue';
 
 const columns = [
   {
     name: 'Id',
     align: 'center',
     label: 'ID',
-    field: 'Id',
+    field: 'id',
     sortable: true,
     sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
   },
   {
     name: 'Sana',
     label: 'SANA',
-    field: 'Sana',
+    field: 'orderTime',
     required: true,
     outerWidth: 1000,
     sortable: true,
@@ -26,7 +28,7 @@ const columns = [
     required: true,
     label: 'ISM',
     align: 'center',
-    field: (row) => row.name,
+    field: (row) => row.customer?.fullname,
     format: (val) => `${val}`,
     sortable: true,
   },
@@ -35,7 +37,7 @@ const columns = [
     align: 'center',
     required: true,
     label: 'TELEFON RAQAM',
-    field: 'Number',
+    field: (row) => row.customer?.contact,
     sortable: true,
   },
   {
@@ -43,7 +45,7 @@ const columns = [
     label: 'SONI',
     required: true,
     align: 'center',
-    field: (row) => row.Soni,
+    field: (row) => row.count || 1,
     format: (val) => `${val}`,
     sortable: true,
   },
@@ -51,8 +53,8 @@ const columns = [
     name: 'narxi',
     label: 'NARXI',
     required: true,
-    field: (row) => row.Narxi,
-    format: (val) => `${val}`,
+    field: (row) => row.foods[0].cost,
+    format: (val) => `${val} so'm`,
     sortable: true,
     align: 'center',
   },
@@ -60,133 +62,33 @@ const columns = [
     name: 'Manzil',
     label: 'MANZIL',
     required: true,
-    field: 'Manzil',
+    field: 'adress',
     align: 'center',
   },
-  { name: 'Driver', label: 'DRIVER', field: 'Driver', align: 'center' },
+  { name: 'Driver', label: 'DRIVER',
+  field: (row) => row?.driver[0]?.car_number,
+    align: 'center' },
   {
     name: 'Holat',
     label: 'HOLAT',
     required: true,
-    field: 'Holat',
+    field: 'status',
     align: 'center',
     sort: (row) => row.holat,
     format: (val) => `${val}`,
   },
 ];
 
-const rows = [
-  {
-    Id: 1,
-    name: 'Ali Zairov',
-    Number: +998901234567,
-    Narxi: '100 000',
-    Soni: 5,
-    Manzil: '🚩',
-    Driver: 'NOT SELECTED',
-    Holat: 'buyurtma',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 2,
-    name: 'Abdulmajidxonov Abdulfattohxon',
-    Number: +998901122122,
-    Soni: 1,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'tayyorlanmoqda',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 3,
-    name: 'Usmon Mas’udjonov',
-    Number: +998900112121,
-    Soni: 1,
-    Narxi: 3,
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'buyurtma',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 4,
-    name: 'Farruhbek Abbosov',
-    Number: +998911117777,
-    Soni: 1,
-    Narxi: 2,
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'qabul',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 5,
-    name: 'Shuhratbek Qobulov',
-    Number: +998901234567,
-    Soni: 1,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'bekor',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 6,
-    name: 'Bobur Mavlonov',
-    Number: +998907654321,
-    Soni: 5,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'yakun',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 7,
-    name: 'Toxir Torayev',
-    Number: +998906142005,
-    Soni: 99,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'yetkazish',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 8,
-    name: 'Mirmuhsin Mirahmatov',
-    Number: +998900006151,
-    Soni: 9,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'yakun',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 9,
-    name: 'Isayev Muxammad Bobur',
-    Number: +998901234567,
-    Soni: 7,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'yetkazish',
-    Sana: 'Iyun 14, 00:00',
-  },
-  {
-    Id: 10,
-    name: 'Ahror Adhamxo`jayev',
-    Number: +998901234567,
-    Soni: 1,
-    Narxi: '100 000',
-    Manzil: '🚩',
-    Driver: '01 | S 777 AA',
-    Holat: 'qabul',
-    Sana: 'Iyun 14, 00:00',
-  },
-];
+
+
+let rows = ref([])
+
+async function eledd (){
+ let orders =  await getOrder()
+ rows.value = orders
+}
+
+eledd()
 
 export default {
   setup() {
