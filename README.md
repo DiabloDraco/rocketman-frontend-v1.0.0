@@ -1,6 +1,6 @@
-# Rocketman app (rocketman)
+# Rocketman (rocketman-project)
 
-Rocketman project
+A Rocketman Projekt
 
 ## Install the dependencies
 ```bash

@@ -15,7 +15,6 @@ export async function postUser(
       method: 'POST',
       headers: myHeaders,
       body: User,
-      redirect: 'follow'
     })
     .then((req) => req.json())
     .then((data) => {
@@ -26,6 +25,7 @@ export async function postUser(
         console.log(t)
 
         if (tkn == undefined) {
+          alert('wrong username or password')
           throw new Error('wrong username or password');
         }
 
