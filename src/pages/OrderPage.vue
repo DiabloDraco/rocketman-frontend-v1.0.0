@@ -53,7 +53,7 @@ const columns = [
     name: 'narxi',
     label: 'NARXI',
     required: true,
-    field: (row) => row.foods[0].cost,
+    field: (row) => row.foods[0]?.cost,
     format: (val) => `${val} so'm`,
     sortable: true,
     align: 'center',
@@ -71,17 +71,8 @@ const columns = [
     field: (row) => row?.driver[0]?.car_number,
     align: 'center',
   },
-  {
-    name: 'Holat',
-    label: 'HOLAT',
-    required: true,
-    field: (row) => console.log(row.customer?.fullname),
-    align: 'center',
-    sort: (row) => row.holat,
-    format: (val) => `${val}`,
-  },
+  // {v
 ];
-
 
 let rows = ref([]);
 
@@ -92,15 +83,18 @@ async function eledd() {
 
 eledd();
 
-function ctx (evt) {
-  console.log(evt.target);
-}
+let current_clicked_row = (evt, row, index) => {
+  console.log(row.customer.id);
+};
+
+
 
 export default {
   setup() {
     return {
       columns,
       rows,
+      current_clicked_row
     };
   },
   components: { LayoutHi },
@@ -112,12 +106,13 @@ export default {
     <section class="order">
       <div class="q-pa-md">
         <q-table
-        @click="()=>ctx"
+          @row-click="current_clicked_row"
           :rows="rows"
           class="order__table"
           table-header-class="order__table-header"
           :columns="columns"
-          row-key="name"
+          row-key="id"
+
         >
           <!-- <template #body-cell-Holat="props">
             <q-td :id="row.Id" :props="props" style="display: flex; align-items: center;">{{row.fullname}}</q-td>
