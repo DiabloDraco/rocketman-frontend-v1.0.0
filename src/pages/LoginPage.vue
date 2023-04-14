@@ -6,35 +6,35 @@
         <q-form class="login__inp-wrapper">
           <h2 class="login__header">Kirish</h2>
           <q-input
-            class="login__input"
-            outlined
-            v-model="user"
-            label="Login"
-            type="text"
-            :value="user"
-            @:input-name="user = $event.target.value"
+          class="login__input"
+          outlined
+          v-model="user"
+          label="Login"
+          type="text"
+          :value="user"
+          @:input-name="user = $event.target.value"
           >
-          </q-input>
-          <q-input
-            class="login__input"
-            outlined
-            v-model="pass"
-            label="Parol"
-            type="password"
-            :value="pass"
-            @:input-name="pass = $event.target.value"
-          >
-          </q-input>
-          <q-btn style="color: red" class="login__btn" @click="addUser"
-            >Kirish</q-btn
-          >
-        </q-form>
-      </div>
-    </div>
+        </q-input>
+        <q-input
+        class="login__input"
+        outlined
+        v-model="pass"
+        label="Parol"
+        type="password"
+        :value="pass"
+        @:input-name="pass = $event.target.value"
+        >
+      </q-input>
+      <q-btn style="color: red" class="login__btn" @click="addUser"
+      >Kirish</q-btn
+      >
+    </q-form>
   </div>
+</div>
+</div>
 </template>
 
-<script lang="ts">
+<script>
 import { ref } from 'vue';
 import { postUser } from '../components/fetch';
 
