@@ -56,7 +56,7 @@ export default {
     };
   },
   methods: {
-    changeInput(e: { target: string }) {
+    changeInput(e) {
       console.log(e.target.valueOf().toString());
     },
     addUser() {
