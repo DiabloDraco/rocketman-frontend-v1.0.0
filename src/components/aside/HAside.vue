@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 // import { ref } from 'vue';
 import Aside__item from './aside__item/aside__item.vue';
 

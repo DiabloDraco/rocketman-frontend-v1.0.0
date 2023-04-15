@@ -1,104 +1,66 @@
 <script>
 import LayoutHi from 'src/layouts/layoutHi.vue';
 import { ref } from 'vue';
+import { getCategory } from 'src/service/CategoryService';
+
+let arr = [
+  1,
+  3,
+  1,
+  2,
+  6
+]
 
 const columns = [
-  {
-    name: 'name',
-    required: true,
-    label: 'KATEGORIYA',
-    align: 'center',
-    field: (row) => row.name,
-    format: (val) => `${val}`,
-    sortable: true,
-    id: (row) => `${row.val}`
-  },
-  {
-    name: 'Dokonlar',
-    label: 'DOKONLAR',
-    align: 'center',
-    required: true,
-    field: (row) => row.dokonlar,
-    format: (val) => `${val}`,
-    sortable: true,
-  },
-  {
-    name: 'Tahrirlash',
-    label: 'TAHRIRLASH',
-    field: 'tahrirlash',
-    align: 'center',
-    field: (row) => row.tahrirlash,
-  },
-  {
-    name: 'STATUS',
-    label: 'STATUS',
-    align: 'center',
-    field: 'Status',
-  },
+{
+  name: 'name',
+  required: true,
+  label: 'KATEGORIYA',
+  align: 'center',
+  field: (row) => row.categories_name,
+  format: (val) => `${val}`,
+  sortable: true,
+  id: (row) => row.id
+},
+{
+  name: 'Dokonlar',
+  label: 'DOKONLAR',
+  align: 'center',
+  required: true,
+  field: (row) => row.dokonlar || arr[0],
+  format: (val) => `${val}`,
+  sortable: true,
+},
+{
+  name: 'Tahrirlash',
+  label: 'TAHRIRLASH',
+  field: 'tahrirlash',
+  align: 'center',
+  field: (row) => row.tahrirlash || '⛳',
+  id: (row) => row.id
+},
+{
+  name: 'STATUS',
+  label: 'STATUS',
+  align: 'center',
+  field: (row) => row.status,
+},
 ];
 
-const rows = [
-  {
-    id: 1,
-    name: 'Frozen Yogurt',
-    tahrirlash: '🔍',
-    dokonlar: '12',
-  },
-  {
-    id: 2,
-    name: 'Ice cream sandwich',
-    tahrirlash: '🔍',
-    dokonlar: '132',
-  },
-  {
-    id: 3,
-    name: 'Eclair',
-    tahrirlash: '🔍',
-    dokonlar: '112',
-  },
-  {
-    id: 4,
-    name: 'Cupcake',
-    tahrirlash: '🔍',
-    dokonlar: '412',
-  },
-  {
-    id: 5,
-    name: 'Gingerbread',
-    tahrirlash: '🔍',
-    dokonlar: '121',
-  },
-  {
-    id: 6,
-    name: 'Jelly bean',
-    tahrirlash: '🔍',
-    dokonlar: '125',
-  },
-  {
-    id: 7,
-    name: 'Lollipop',
-    tahrirlash: '🔍',
-    dokonlar: '162',
-  },
-  {
-    id: 8,
-    name: 'Honeycomb',
-    tahrirlash: '🔍',
-    dokonlar: '126',
-  },
-  {
-    id: 9,
-    name: 'Donut',
-    tahrirlash: '🔍',
-    dokonlar: '12',
-  },
-  {
-    id: 10,
-    name: 'KitKat',
-    tahrirlash: ' 🔍',
-    dokonlar: '12',
-  },
-];
+
+
+
+let rows = ref([]);
+async function add() {
+  let orders = await getCategory();
+  rows.value = orders;
+}
+
+add();
+
+let current_clicked_row = (__evt, row, __arr) => {
+  console.log(row.id);
+};
 
 export default {
   setup() {
@@ -106,6 +68,8 @@ export default {
       selected: ref([]),
       columns,
       rows,
+      current_clicked_row
+
     };
   },
   components: { LayoutHi },
@@ -123,41 +87,43 @@ export default {
           Qo'shish
           <div class="category__img-wrapper">
             <img
-              class="category__img"
-              src="../assets/icons/category__svg.svg"
-              alt=""
-              width="6.27"
-              height="6.13"
+            class="category__img"
+            src="../assets/icons/category__svg.svg"
+            alt=""
+            width="6.27"
+            height="6.13"
             />
           </div>
         </button>
       </div>
       <q-table
-        flat
-        bordered
-        :rows="rows"
-        :columns="columns"
-        :key="columns.id"
-        :visible-columns="myCols"
-        row-key="name"
-        table-header-class="product__thead"
-        on-selection="false"
-        class="product__table"
-        v-model:selected="selected.id"
+      flat
+      bordered
+      :rows="rows"
+      :columns="columns"
+      :key="columns.id"
+      :visible-columns="myCols"
+      row-key="name"
+      table-header-class="product__thead"
+      on-selection="false"
+      class="product__table"
+      v-model:selected="selected.id"
+      @row-click="current_clicked_row"
+
       >
-        <!-- <template v-slot:header-selection>
-          <h2 class="product__header"></h2>
-        </template> -->
-        <!-- <template v-slot:body-selection="scope">
-          <q-toggle
-            v-model="scope.selected"
-            color="pink"
-            :field="scope.selected"
-          />
-        </template> -->
-      </q-table>
-    </section>
-  </LayoutHi>
+      <!-- <template v-slot:header-selection>
+        <h2 class="product__header"></h2>
+      </template> -->
+      <!-- <template v-slot:body-selection="scope">
+        <q-toggle
+        v-model="scope.selected"
+        color="pink"
+        :field="scope.selected"
+        />
+      </template> -->
+    </q-table>
+  </section>
+</LayoutHi>
 </template>
 
 <style lang="scss">

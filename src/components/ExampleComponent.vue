@@ -2,15 +2,12 @@
   <div></div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { Todo, Meta } from './models';
+<script >
+import { defineComponent } from 'vue';
 
 import { useQuasar } from 'quasar'
 
 const h = useQuasar()
-
-console.log(h);
 
 
 export default defineComponent({
@@ -21,11 +18,10 @@ export default defineComponent({
       required: true,
     },
     todos: {
-      type: Array as PropType<Todo[]>,
       default: () => [],
     },
     meta: {
-      type: Object as PropType<Meta>,
+      type: Object ,
       required: true,
     },
     active: {

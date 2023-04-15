@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 window.location.href = '/#/Order';
 window.location.reload();
 </script>

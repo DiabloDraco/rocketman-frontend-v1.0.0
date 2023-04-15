@@ -30,8 +30,11 @@
   </LayoutHi>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import LayoutHi from 'src/layouts/layoutHi.vue';
+if(window.location.href == '/#/settings'){
+  window.location.href = '/#/settings/users';
+}
 window.location.href = '/#/settings/users';
 </script>
 

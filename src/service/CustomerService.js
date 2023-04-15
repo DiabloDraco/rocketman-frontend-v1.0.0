@@ -1,5 +1,5 @@
-import { api } from "src/boot/axios"
-import { getOrder } from "./OrderService"
+import { api } from 'src/boot/axios'
+import { getOrder } from './OrderService'
 
 
 async function getCustomer () {

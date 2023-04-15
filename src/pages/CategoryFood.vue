@@ -133,11 +133,11 @@ const row = [
   },
 ];
 
-for (let i = 0; i < row.length; i++) {
-  if (row[i].Holat == 'enabled') {
-    console.log(row[i].Holat);
-  }
-}
+// for (let i = 0; i < row.length; i++) {
+//   if (row[i].Holat == 'enabled') {
+//     console.log(row[i].Holat);
+//   }
+// }
 
 export default {
   setup() {

@@ -166,7 +166,6 @@ export default {
         class="payment__table"
         :columns="columns"
         table-header-class="payment__t-header"
-        table-colspan="hi"
         row-key="name"
       />
     </div>

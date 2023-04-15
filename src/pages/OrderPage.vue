@@ -82,12 +82,9 @@ async function eledd() {
 }
 
 eledd();
-
-let current_clicked_row = (evt, row, index) => {
+let current_clicked_row = (_evt, row) => {
   console.log(row.customer.id);
 };
-
-
 
 export default {
   setup() {
@@ -99,6 +96,7 @@ export default {
   },
   components: { LayoutHi },
 };
+
 </script>
 
 <template>

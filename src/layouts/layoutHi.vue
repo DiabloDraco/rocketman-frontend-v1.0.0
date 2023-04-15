@@ -6,7 +6,7 @@
     <slot />
   </main>
 </template>
-<script setup lang="ts">
+<script setup >
 import HAside from 'src/components/aside/HAside.vue';
 
 

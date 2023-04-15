@@ -46,18 +46,6 @@ const routes: RouteRecordRaw[] = [
     name: 'Suggestions',
     component: () => import('pages/SuggestionPage.vue'),
   },
-  // {
-  //   path: '/settings',
-  //   name:'settings',
-  //   component: () => import('pages/SettingsPage.vue'),
-  //   children: [
-  //     {
-  //       path: 'users',
-  //       name: 'users',
-  //       component: () => import('pages/UsersPage.vue')
-  //     }
-  //   ]
-  // },
   {
     path: '/settings',
     component: () => import('pages/SettingsPage.vue'),
@@ -77,6 +65,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'info',
         component: () => import('pages/InfoPage.vue'),
+      },
+      {
+        path: '/:catchAll(.*)*',
+        component: () => import('pages/ErrorNotFound.vue'),
       },
     ],
   },

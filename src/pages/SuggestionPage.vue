@@ -4,41 +4,34 @@
       <div class="suggettion__wrapper">
         <h2 class="suggestion__header">Taklif va shikoyatlar</h2>
 
-        <ul class="suggestion__list">
-          <li class="suggestion__item flex no-wrap">
+        <ul class="suggestion__list" v-for="toxir in rows" :key="toxir">
+          <li class="suggestion__item flex no-wrap ">
             <div class="suggestion__item-text-wrapper">
               <div class="suggestion__item-id-wrapper">
-                <span class="suggestion__item-id">1</span>
+                <span class="suggestion__item-id flex">{{ toxir.id }}</span>
               </div>
               <div class="suggestion__item-name-wrapper">
-                <h3 class="suggestion__item-text-header">Bobur Mavlonov</h3>
-                <p class="suggestion__item-text-text">01/01/2021</p>
+                <h3 class="suggestion__item-text-header">{{toxir.customer.fullname  }}</h3>
+                <p class="suggestion__item-text-text">{{ toxir.createdAt.slice(0, -14)}}</p>
               </div>
-              <p class="suggestion__item-text mdi-size-xl">
-                Imperdiet arcu auctor ac quis at adipiscing odio morbi blandit.
-                Purus ornare mattis tincidunt tellus mauris malesuada facilisi
-                urna. Libero, feugiat volutpat diam nullam duis dui sed
-                pulvinar. Nunc duis facilisis fringilla etiam. Lorem dignissim
-                molestie volutpat in dolor arcu. In vitae fusce
-                dignissimsodales.
-              </p>
+              <p class="suggestion__item-text mdi-size-xl">{{ toxir.body}}</p>
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
-                name="reply"
-                color=""
-                size="sm"
-                class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
+              name="reply"
+              color=""
+              size="sm"
+              class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
               />
               <q-icon
-                name="delete"
-                color="red"
-                size="sm"
-                class="bg-red-2 rounded-borders q-pa-sm"
+              name="delete"
+              color="red"
+              size="sm"
+              class="bg-red-2 rounded-borders q-pa-sm"
               />
             </div>
           </li>
-          <li class="suggestion__item flex no-wrap">
+          <!-- <li class="suggestion__item flex no-wrap">
             <div class="suggestion__item-text-wrapper">
               <div class="suggestion__item-id-wrapper">
                 <span class="suggestion__item-id">1</span>
@@ -55,16 +48,16 @@
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
-                name="reply"
-                color=""
-                size="sm"
-                class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
+              name="reply"
+              color=""
+              size="sm"
+              class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
               />
               <q-icon
-                name="delete"
-                color="red"
-                size="sm"
-                class="bg-red-2 rounded-borders q-pa-sm"
+              name="delete"
+              color="red"
+              size="sm"
+              class="bg-red-2 rounded-borders q-pa-sm"
               />
             </div>
           </li>
@@ -83,27 +76,39 @@
             </div>
             <div class="suggestion__item-icon-wrapper flex no-wrap">
               <q-icon
-                name="reply"
-                color=""
-                size="sm"
-                class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
+              name="reply"
+              color=""
+              size="sm"
+              class="bg-blue-1 rounded-borders q-pa-sm q-mr-lg"
               />
               <q-icon
-                name="delete"
-                color="red"
-                size="sm"
-                class="bg-red-2 rounded-borders q-pa-sm"
+              name="delete"
+              color="red"
+              size="sm"
+              class="bg-red-2 rounded-borders q-pa-sm"
               />
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </section>
   </LayoutHi>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import LayoutHi from 'src/layouts/layoutHi.vue';
+import { getQuestions } from 'src/service/QuestionsService';
+import { ref } from 'vue';
+
+async function suggestionAdd() {
+  let questions = await getQuestions();
+  rows.value = questions;
+}
+
+suggestionAdd()
+
+let rows = ref([]);
+console.log(rows);
 </script>
 
 <style lang="scss" scoped>

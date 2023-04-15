@@ -1,7 +1,3 @@
-export interface Meta {
-  totalCount: number;
-}
-
 export interface Name {
   name: string;
 }

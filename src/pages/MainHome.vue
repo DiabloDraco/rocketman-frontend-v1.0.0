@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 import LayoutHi from 'src/layouts/layoutHi.vue';
 if (!window.localStorage.getItem('token')) window.location.pathname = '/#/login';
 

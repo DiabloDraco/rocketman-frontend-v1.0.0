@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     changeInput(e) {
-      console.log(e.target.valueOf().toString());
+      // console.log(e.target.valueOf().toString());
     },
     addUser() {
       postUser(this.user, this.pass);

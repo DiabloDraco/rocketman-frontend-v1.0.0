@@ -18,17 +18,17 @@
         label="Go To Home"
         no-caps
       />
+      <a href="" aria-label="asdasd">a</a>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { Name } from 'src/components/models';
+<script >
 import { defineComponent } from 'vue';
 
 
 
-export default defineComponent<Name>({
+export default defineComponent({
   name: 'ErrorNotFound'
 });
 </script>

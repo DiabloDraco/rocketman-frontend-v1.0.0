@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 const item = defineProps({
   image: String,
   header: String,

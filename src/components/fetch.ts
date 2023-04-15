@@ -22,7 +22,6 @@ export async function postUser(
         const t = data;
         const tkn = t.token;
 
-        console.log(t)
 
         if (tkn == undefined) {
           alert('wrong username or password')
