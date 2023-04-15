@@ -13,6 +13,7 @@
             <q-icon
               name="edit"
               class="lg"
+              @click="openModal"
               size="xs"
               color="white"
               style="padding: 10px 8.5px; border-radius: 50%"
@@ -26,7 +27,7 @@
             />
           </div>
         </li>
-        <li class="user__item q-pa-none">
+        <!-- <li class="user__item q-pa-none">
           <div class="user__item-text">
             <p class="user__item-id">2.</p>
             <p class="user__item-header text-h6">Toxir Turayev</p>
@@ -69,7 +70,7 @@
               style="padding: 10px 8.5px; border-radius: 50%"
             />
           </div>
-        </li>
+        </li> -->
       </ul>
 
       <q-btn
@@ -85,10 +86,35 @@
         Qo’shish
       </q-btn>
     </div>
+    <q-dialog v-model="fixed">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Terms of Agreement</div>
+        </q-card-section>
+
+        <q-input model-value=""></q-input>
+        <q-input model-value=""></q-input>
+
+        <q-separator />
+
+        <q-card-actions align="right">
+          <q-btn flat label="Decline" color="primary" v-close-popup />
+          <q-btn flat label="Accept" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+function openModal() {
+  fixed.value = true;
+}
+
+const fixed = ref(false);
+</script>
 
 <style lang="scss" scoped>
 .user {

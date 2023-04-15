@@ -72,15 +72,12 @@ export default {
           max-pages
           flat
           bordered
-          selection="single"
           :rows="rows"
           :columns="columns"
           row-key="name"
           table-header-class="salom"
           title-class="salom">
-          <template v-slot:body-selection="scope">
-            <q-toggle v-model="scope.selected" />
-          </template>
+
         </q-table>
       </div>
     </section>

@@ -82,7 +82,7 @@ async function eledd() {
 }
 
 eledd();
-let current_clicked_row = (_evt, row) => {
+let current_clicked_row = (_evt, row, _index) => {
   console.log(row.customer.id);
 };
 

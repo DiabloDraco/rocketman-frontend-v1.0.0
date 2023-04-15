@@ -3,8 +3,8 @@ import { api } from 'src/boot/axios'
 
 async function getOrder () {
   let res = await api.get('/order')
-  console.log(res.data.data);
-  return await res.data.data
+  console.log(res.data);
+  return await res.data
 }
 
 let getOrderFoods = async () => {
