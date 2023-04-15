@@ -1,76 +1,117 @@
+<script setup>
+import { ref } from 'vue';
+import { getUser, deleteUser } from 'src/service/SettingsService.js';
+
+const rows = ref([]);
+const delId = ref();
+console.log(delId);
+
+async function userGet() {
+  let token = window.localStorage.getItem('Authorization');
+  let res = await getUser({ token });
+  rows.value = res;
+}
+async function delUser() {
+  let token = window.localStorage.getItem('Authorization');
+  let res = await deleteUser({ token }, delId.value);
+  return res;
+}
+
+userGet();
+
+function openModalEdit() {
+  fixed.value = true;
+}
+
+function openModalDel(id) {
+  fixed2.value = true;
+  delId.value = id;
+}
+
+const fixed = ref(false);
+const fixed2 = ref(false);
+</script>
+
 <template>
   <section class="user q-mt-xl q-pl-md">
     <div class="user__wrapper">
       <h2 class="user__header text-h6 q-pb-lg">Available users</h2>
 
       <ul class="user__list">
-        <li class="user__item q-pa-none">
+        <li
+          v-for="row in rows"
+          :key="row.id"
+          :id="row.id"
+          class="user__item q-pa-none"
+        >
           <div class="user__item-text">
-            <p class="user__item-id">1.</p>
-            <p class="user__item-header text-h6">Toxir Turayev</p>
+            <p class="user__item-id">{{ row.id || 1 }}</p>
+            <p class="user__item-header text-h6">. {{ row.login }}</p>
           </div>
           <div class="user__item-btn-wrapper flex no-wrap">
             <q-icon
               name="edit"
               class="lg"
-              @click="openModal"
+              @click="openModalEdit"
               size="xs"
               color="white"
+              :id="row.id"
               style="padding: 10px 8.5px; border-radius: 50%"
             />
             <q-icon
               name="delete"
               class="bg-red-14"
               size="xs"
+              @click="openModalDel(row.id)"
               color="white"
               style="padding: 10px 8.5px; border-radius: 50%"
             />
           </div>
         </li>
         <!-- <li class="user__item q-pa-none">
-          <div class="user__item-text">
-            <p class="user__item-id">2.</p>
-            <p class="user__item-header text-h6">Toxir Turayev</p>
-          </div>
-          <div class="user__item-btn-wrapper flex no-wrap">
-            <q-icon
-              name="edit"
-              class="lg"
-              size="xs"
-              color="white"
-              style="padding: 10px 8.5px; border-radius: 50%"
-            />
-            <q-icon
-              name="delete"
-              class="bg-red-14"
-              size="xs"
-              color="white"
-              style="padding: 10px 8.5px; border-radius: 50%"
-            />
-          </div>
-        </li>
-        <li class="user__item q-pa-none">
-          <div class="user__item-text">
-            <p class="user__item-id">3.</p>
-            <p class="user__item-header text-h6">Toxir</p>
-          </div>
-          <div class="user__item-btn-wrapper flex no-wrap">
-            <q-icon
-              name="edit"
-              class="lg"
-              size="xs"
-              color="white"
-              style="padding: 10px 8.5px; border-radius: 50%"
-            />
-            <q-icon
-              name="delete"
-              class="bg-red-14"
-              size="xs"
-              color="white"
-              style="padding: 10px 8.5px; border-radius: 50%"
-            />
-          </div>
-        </li> -->
+        <div class="user__item-text">
+          <p class="user__item-id">2.</p>
+          <p class="user__item-header text-h6">Toxir Turayev</p>
+        </div>
+        <div class="user__item-btn-wrapper flex no-wrap">
+          <q-icon
+          name="edit"
+          class="lg"
+          size="xs"
+          color="white"
+          style="padding: 10px 8.5px; border-radius: 50%"
+          />
+          <q-icon
+          name="delete"
+          class="bg-red-14"
+          size="xs"
+          color="white"
+          style="padding: 10px 8.5px; border-radius: 50%"
+          />
+        </div>
+      </li>
+      <li class="user__item q-pa-none">
+        <div class="user__item-text">
+          <p class="user__item-id">3.</p>
+          <p class="user__item-header text-h6">Toxir</p>
+        </div>
+        <div class="user__item-btn-wrapper flex no-wrap">
+          <q-icon
+          name="edit"
+          class="lg"
+          size="xs"
+          color="white"
+          style="padding: 10px 8.5px; border-radius: 50%"
+          />
+          <q-icon
+          name="delete"
+          class="bg-red-14"
+          size="xs"
+          color="white"
+          style="padding: 10px 8.5px; border-radius: 50%"
+          />
+        </div>
+      </li> -->
       </ul>
       <q-btn
         flat
@@ -87,12 +128,10 @@
     </div>
     <q-dialog v-model="fixed">
       <q-card>
-        <q-card-section>
+        <q-card-section class="q-px-lg">
           <div class="text-h6">Terms of Agreement</div>
+          <q-input model-value=""></q-input>
         </q-card-section>
-
-        <q-input model-value=""></q-input>
-        <q-input model-value=""></q-input>
 
         <q-separator />
 
@@ -102,27 +141,27 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="fixed2">
+      <q-card>
+        <q-card-section class="q-px-lg">
+          <div class="text-h6">USERNI OCHIRISHGA ROZIMISIZ</div>
+          <q-btn
+            label="ROZIMAN"
+            style="display: inline-block; margin: 0 auto"
+            :onclick="delUser(delId.value)"
+          ></q-btn>
+        </q-card-section>
+        <q-separator />
+      </q-card>
+    </q-dialog>
   </section>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-
-function openModal() {
-  fixed.value = true;
-}
-
-const fixed = ref(false);
-</script>
 
 <style lang="scss" scoped>
 .user {
   .user__wrapper {
     max-width: 426px;
     width: 100%;
-    .user__header {
-    }
-
     .user__btn {
       display: flex;
       margin-left: auto;
