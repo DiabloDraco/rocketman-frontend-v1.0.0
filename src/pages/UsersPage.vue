@@ -72,7 +72,6 @@
           </div>
         </li> -->
       </ul>
-
       <q-btn
         flat
         class="user__btn text-capitalize"
